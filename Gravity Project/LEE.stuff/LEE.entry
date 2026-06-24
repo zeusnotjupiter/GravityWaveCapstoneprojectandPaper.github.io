@@ -1,0 +1,21 @@
+Black Hole - Neutron Star Binary Mergers
+
+contact: William Henry Lee <wlee@astroscu.unam.mx> (this should enable
+						sending an email
+message)
+
+README (can this file "pop up" in a window?  This file will contain
+         references to papers; any way to make these links to the 
+         journals and/or xxx archives?)
+
+Graphic:  small ("thumbnail") graph of just one waveform from the group,
+	  plotting only rh_+ (cm) vs. time (sec) -- so this is to plot
+          column 2 versus column one.  Please label horiz axis as
+	"time (sec)" and vertical as "rh+ (cm)" with the vertical axis
+	 on the lhs (i.e. so you are plotting in quadrant I).  On the top
+        of the plot please put an overall label that is the name of the
+	file from which the data is taken, e.g. waveform1BHNS.out.
+
+download data files : here, put a link so one can click and download
+			the data in gzipped tar format (all the files in
+			one gzipped tarball, including the README file).

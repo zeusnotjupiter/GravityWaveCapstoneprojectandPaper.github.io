@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+{% block title %}Jeremiah C. White - Data Science Portfolio{% endblock %}
+{% block content %}
+<div class="container">
+<div class="row justify-content-center mb-5">
+<div class="col-lg-10">
+<div class="card">
+<div class="card-body text-center p-5">
+<img src="{{ url_for('static', filename='images/profile.webp') }}" alt="Jeremiah White" class="rounded-circle mb-3" style="width: 150px; height: 150px;">
+<h1 class="mb-3">Jeremiah C. White</h1>
+<p class="lead mb-4">Data Science Graduate Student | Aerospace Research | Machine Learning Applications</p>
+<p class="text-muted">Swiss Army Knife data scientist with a Marine Science background. Working at the intersection of data science, engineering, chemistry, and physics. Experienced in artificial intelligence, predictive modeling, and environmental analytics.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="row mb-5">
+<div class="col-lg-6 mb-4">
+<div class="card h-100">
+<div class="card-body">
+<h3>Current Research</h3>
+<p>At the McNair Aerospace Center, I am currently doing a systematic literature review on the ai applications of acoustic emissions for structural health monitoring. I hope to have it published by the end of this year. I have learned a significant amount about machine learning architecture since I have started there.</p>
+<ul>
+<li>Aerospace Materials Analysis</li>
+<li>Acoustic Emission Monitoring</li>
+<li>Machine Learning for Predictive Modeling</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="col-lg-6 mb-4">
+<div class="card h-100">
+<div class="card-body">
+<h3>Academic Background</h3>
+<p>I have a pretty diverse background in science. I love learning and applying theory in practical scenarios. I have researched physical chemistry, Oceanography, material science, and Artificial Intelligence. There are not too many STEM disciplines that don't overlap with each other and I excel at working in those overlaps. </p>
+<div class="mt-3">
+<span class="badge bg-primary me-2">Data Science</span>
+<span class="badge bg-secondary me-2">Material Science</span>
+<span class="badge bg-success me-2">Marine Science</span>
+<span class="badge bg-info me-2">Artificial Intelligence</span>
+</div>
+</div>
+</div>
+</div>
+<div class="row mb-5">
+<div class="col-12">
+<div class="card">
+<div class="card-body">
+<h3>Technical Expertise</h3>
+<div class="row">
+<div class="col-md-4 mb-3">
+<h5>Machine Learning & AI</h5>
+<p class="text-muted">I excel at predictive modeling using and understanding use cases.</p>
+</div>
+<div class="col-md-4 mb-3">
+<h5>Data Science</h5>
+<p class="text-muted">Python, R, MATLAB, and SQL for large-scale scientific datasets.</p>
+</div>
+<div class="col-md-4 mb-3">
+<h5>Scientific Computing</h5>
+<p class="text-muted">Oceanographic modeling, aerospace materials analysis, acoustic emission processing.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class = "row">
+<div class = "col-lg-8 mx-auto">
+<div class = "card">
+<div class = "card-body text-center">
+<h3>Career Aspirations</h3>
+<p>Since my work involves bridging the gap between theory and applications, I aspire to be the BEST in the intersection of scientific computing and data science</p>
+<div class="mt-4">
+<a href="{{ url_for('gravitational_waves') }}" class="btn btn-outline-primary me-3">GW Analysis</a>
+<a href="{{ url_for('projects') }}" class="btn btn-outline-primary">Projects</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+{% endblock %}

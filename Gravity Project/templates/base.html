@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{% block title %}Jeremiah C. White - Data Science Portfolio{% endblock %}</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<style>
+body {font-family: Arial, sans-serif; background-color: #f8f9fa;}
+.navbar {background-color: #343a40 !important;}
+.navbar-brand, .nav-link {color: #f1e8e8 !important;}
+.nav-link:hover {color: #3a9ada !important;}
+.card {border: none; border-radius: 15px; box-shadow: 0 8px 30px rgba(7, 7, 7, 0.12); background: rgba(234, 231, 231, 0.95); margin-bottom: 2rem;}
+.btn-primary {background-color: #007bff; border-color: #007bff; border: none; border-radius: 25px; padding: 12px 30px;}
+.main-content {padding: 2rem 0; margin-top: 76px;}
+</style>
+{% block head %}{% endblock %}
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+<div class="container">
+<a class="navbar-brand" href="{{ url_for('home') }}">Jeremiah C. White's Portfolio</a>
+<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+<span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="navbarNav">
+<ul class="navbar-nav ms-auto">
+<li class="nav-item"><a class="nav-link" href="{{ url_for('home') }}">Home</a></li>
+<li class="nav-item"><a class="nav-link" href="{{ url_for('resume') }}">Resume</a></li>
+<li class="nav-item"><a class="nav-link" href="{{ url_for('projects') }}">Projects</a></li>
+<li class="nav-item"><a class="nav-link" href="{{ url_for('gravitational_waves') }}">GW Analysis</a></li>
+</ul>
+</div>
+</div>
+</nav>
+<div class="main-content">
+{% block content %}{% endblock %}
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+{% block scripts %}{% endblock %}
+</body>
+</html>

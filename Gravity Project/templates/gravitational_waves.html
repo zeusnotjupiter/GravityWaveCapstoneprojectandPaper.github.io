@@ -1,0 +1,117 @@
+{% extends "base.html" %}
+{% block title %}Gravitational Wave Analysis{% endblock %}
+{% block content %}
+<div class="container">
+<div class="text-center mb-5">
+<h1>Gravitational Wave Analysis</h1>
+<p class="lead">Machine Learning for Black Hole-Neutron Star Merges</p>
+</div>
+<div class="row mb-4">
+<div class="col-12">
+<div class="card">
+<div class="card-body">
+<h3>Project Overview</h3>
+<p>I analyzed gravitational wave signals from black hole-neutron star merging events using machine learning. When these objects begin to merge together, they create grsvity waves that are polarized. These polarizations are called h+ and hx. Here, this model predicts rhx</p>
+<h5>Dataset</h5>
+<p>For this project, I used 5 BHNS simulations provided by the NASA database. Each simulation consisted of three columns. Time(s), rh+(cm), and rhx(cm). "r" is simply the distance from the observer. For a more accurate description, I am using time and rh+ to predict the cross-polarization gravitational wave strain amplitude multiplied by distance. </p>
+<h5>ML Approach</h5>
+<p>I trained Linear Regression, Lasso Regression and Random Forest models to predict rhx amplitude from time and rh+ values. Random Forest achieved the best performance.</p>
+</div>
+</div>
+</div>
+<div class="row mb-4">
+<div class="col-12">
+<div class="card">
+<div class="card-header bg-primary text-black">
+<h3>Predict rhx</h3>
+</div>
+<div class="card-body">
+{% if model_loaded %}
+<div class="row">
+<div class="col-md-6">
+<form id="predictionForm">
+<div class="mb-3">
+<label for="time_sec" class="form-label">Time (seconds)</label>
+<input type="number" class="form-control" id="time_sec" name="time_sec" step="0.001" min="-1" max="1" value="0.0" required>
+<small class="form-text text-muted">Range: -1.0 to 1.0 seconds (t=0 is merger)</small>
+</div>
+<div class="mb-3">
+<label for="rh_plus" class="form-label">rh+ Amplitude (cm)</label>
+<input type="number" class="form-control" id="rh_plus" name="rh_plus" step="0.000001" value="0.001" required>
+<small class="form-text text-muted">GW amplitude × distance</small>
+</div>
+<button type="submit" class="btn">Calculate</button>
+</form>
+</div>
+<div class="col-md-6">
+<div id="predictionResult" style="display: none;" class="alert alert-info">
+<h5>Result</h5>
+<div id="resultContent"></div>
+</div>
+</div>
+</div>
+{% else %}
+<div class="alert alert-warning">
+<h5>Model Not Available</h5>
+<p>not so fast haha, you have to Run grav.py first to generate model file otherwise it won't work.</p>
+</div>
+{% endif %}
+</div>
+</div>
+</div>
+<div class="row mb-4">
+<div class="col-12">
+<div class="card">
+<div class="card-body">
+<h3>Methodology</h3>
+<div class="row">
+<div class="col-md-4">
+<h5>Data Prep</h5>
+<ul><li>Loaded 5 SPH files from gz file (Simulation data)</li><li>Combined datasets(all diffrent scenarios)</li><li>70/30 train/test split</li></ul>
+</div>
+<div class="col-md-4">
+<h5>Training</h5>
+<ul><li>Linear and Lasso Regression baseline</li><li>Random Forest (100 trees)</li><li>Cross-validation(3)</li></ul>
+</div>
+<div class="col-md-4">
+<h5>Evaluation</h5>
+<ul><li>RMSE calculations</li><li>R^2 scores</li><li>Best model selection</li></ul>
+</div>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-12">
+<div class="card">
+<div class="card-body">
+<h3>Results</h3>
+<p>While Linear and Lasso Regression both performed weakly with nearly identical RMSEs of 31735.3 and 31735.2 respectivly, the also had abysmal R^2 values of  ~ -6*10^-05. Random Forest managed to successfully capture a non-linear relationship in the GW data and yielded a RMSE of 5,881.3 and a R^2 of 0.965. this proves that machine learning can be a useful tool in capturing real physics via simulation data, but must must be applied with the correct approch.</p>
+<h5>References</h5>
+<ul>
+<li>Lee W.H., 2000, Newtonian hydrodynamics of the coalescence of black holes with neutron stars -- III. Irrotational binaries with a stiff equation of state, <em>Monthly Notices of the Royal Astronomical Society</em>, Volume 318, Issue 2, Pages 606-617</li>
+<li>Lee W.H., 2001, Newtonian hydrodynamics of the coalescence of black holes with neutron stars -- IV. Irrotational binaries with a soft equation of state, <em>Monthly Notices of the Royal Astronomical Society</em>, Volume 328, Issue 2, Pages 583-600, https://doi.org/10.1046/j.1365-8711.2001.04898.x</li>
+<li>Lee W.H., Kluzniak W., 1999, Newtonian hydrodynamics of the coalescence of black holes with neutron stars -- I & II, <em>Astrophysical Journal/Monthly Notices of the Royal Astronomical Society</em></li>
+<li>Gravitational Wave Polarization Context: https://thesis.library.caltech.edu/13851/8/Sudhi_thesis.pdf</li>
+<li>Bootstrap Documentation, 2021, getbootstrap.com</li>
+<li>Flask Web Framework, Grinberg, M., 2018, O'Reilly Media</li>
+<li>Real Python: "Build a JavaScript Front End for a Flask API", 2023, realpython.com</li>
+<li>Flask Documentation: "JavaScript, fetch, and JSON", flask.palletsprojects.com</li>
+<li>Scikit-learn Documentation: https://scikit-learn.org/stable/</li>
+<li>Kaggle Learn: Introduction to Machine Learning: https://www.kaggle.com/learn/intro-to-machine-learning</li>
+<li>Python Data Science Libraries Documentation (NumPy, Pandas, Matplotlib, Joblib)</li>
+</ul>
+</div>
+</div>
+</div>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+document.getElementById('predictionForm').addEventListener('submit', async function(e) {e.preventDefault();
+const formData = new FormData(this);
+try {const response = await fetch('/predict', {method: 'POST', body: formData});
+const data = await response.json();
+if (response.ok) { showResult(data); } else { showError(data.error); }
+} catch (error) {showError('Network error occurred.'); } }); });
+function showResult(data) { document.getElementById('resultContent').innerHTML = `<h4>${data.prediction.toExponential(3)} cm</h4>`; document.getElementById('predictionResult').style.display = 'block'; }
+function showError(message) { document.getElementById('resultContent').innerHTML = `<strong>Error:</strong> ${message}`; document.getElementById('predictionResult').style.display = 'block'; }
+</script>
+{% endblock %}

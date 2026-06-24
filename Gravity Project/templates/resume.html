@@ -1,0 +1,124 @@
+{% extends "base.html" %}
+{% block title %}Resume - Jeremiah C. White{% endblock %}
+{% block content %}
+<div class="container">
+<div class="text-center mb-5">
+<h1>Resume</h1>
+<p class="lead">Data Science Graduate Student & Science Enthusiast</p>
+</div>
+<div class="row justify-content-center mb-4">
+<div class="col-lg-8">
+<div class="card">
+<div class="card-body text-center">
+<img src="{{ url_for('static', filename='images/profile.webp') }}" alt="Jeremiah White" class="rounded-circle mb-3" style="width: 150px; height: 150px;">
+<h3 class="mb-3">Jeremiah C. White</h3>
+<div class="row">
+<div class="col-md-6">
+<p class="mb-2">Email: jeremiah.white2@eastern.edu</p>
+<p class="mb-2">Location: Columbia, SC</p>
+</div>
+<div class="col-md-6">
+<p class="mb-2">LinkedIn: linkedin.com/in/jeremiah-white-219243274</p>
+<p class="mb-2">Current GPA: 4.0</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="row mb-4">
+<div class="col-12">
+<div class="card">
+<div class="card-body">
+<h3 class="mb-4">Education</h3>
+<div class="mb-4">
+<h5>Master's in Data Science</h5>
+<h6 class="text-primary">Eastern University - Saint David's, PA</h6>
+<p class="text-muted mb-2">4.0 GPA | Expected Graduation: December 2025</p>
+<p><strong>Relevant Coursework:</strong> Applied Data Science (DTSC691), Statistical Modeling (DTSC550), Python Programming (DTSC575), Data Manipulation (DTSC580), Machine Learning Models (DTSC670)</p>
+<p><strong>Research:</strong> Aerospace materials analysis, acoustic emission monitoring, gravitational wave analysis, and AI applications</p>
+</div>
+<div>
+<h5>Bachelor of Science in Marine Science</h5>
+<h6 class="text-primary">Coastal Carolina University - Conway, SC</h6>
+<p class="text-muted mb-2">3.38 GPA | Graduated: April 2024</p>
+<p><strong>Relevant Coursework:</strong> Physical Oceanography, Marine Geology, Marine Chemistry, Environmental Chemistry, Marine Science Data Analysis, Marine Biology</p>
+<p><strong>Research:</strong> Oceanographic data analysis, hydrodynamic modeling, climate data processing, solid-state physics</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="row mb-4">
+<div class="col-12">
+<div class="card">
+<div class="card-body">
+<h3 class="mb-4">Research & Work Experience</h3>
+<div class="mb-4">
+<h5>Data/Computational Research Affiliate</h5>
+<h6 class="text-primary">McNair Aerospace Center - Columbia, SC</h6>
+<p class="text-muted mb-2">January 2025 - April 2025 </p>
+<ul>
+<li>Developed advanced data visualization techniques for NASA's Urban Air Mobility initiative</li>
+<li>Analyzed 500,000+ datasets from acoustic sensors, improving impact detection accuracy by 30%</li>
+<li>Created predictive models for aerospace engineering material damage forecasting</li>
+<li>Applied machine learning to acoustics, materials dynamics, and mathematical structures</li>
+</ul>
+</div>
+<div class="mb-4">
+<h5>Data Scientist/R&D Strategist</h5>
+<h6 class="text-primary">Partunity - Columbia, SC</h6>
+<p class="text-muted mb-2">October 2024 - April 2025 (Volunteer)</p>
+<ul>
+<li>Engineered predictive growth models achieving 85% accuracy in user behavior forecasting</li>
+<li>Improved user retention by 25% through machine learning-driven feature recommendations</li>
+<li>Optimized data pipelines resulting in 35% increase in data retrieval speed</li>
+<li>Enhanced user engagement scores by 60%, adding 5,000 monthly active users</li>
+</ul>
+</div>
+<div class="mb-4">
+<h5>Solid-State Physics Research Assistant</h5>
+<h6 class="text-primary">Coastal Carolina University Gupta Fellowship - Conway, SC</h6>
+<p class="text-muted mb-2">June 2023 - April 2024</p>
+<ul>
+<li>Synthesized theoretical compounds: AlxZn1-xV2O4, AlV2O4, and ZnV2O4</li>
+<li>Applied graduate-level linear algebra and computational methods to structural analysis</li>
+<li>Utilized high-precision scales and controlled atmosphere furnaces for experiments</li>
+<li>Documented differentiations and standardized synthesis methodologies</li>
+</ul>
+</div>
+<div>
+<h5>Oceanographic Data Analysis Researcher</h5>
+<h6 class="text-primary">Coastal Carolina University - Conway, SC</h6>
+<p class="text-muted mb-2">January 2024 - May 2024</p>
+<ul>
+<li>Implemented and combined hydrodynamic research methodologies using NumPy, Pandas, and Xarray</li>
+<li>Processed solar energy budget data across spatial and temporal boundaries</li>
+<li>Improved processing efficiency by 40% through advanced data manipulation</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="row mb-4">
+<div class="col-12">
+<div class="card">
+<div class="card-body">
+<h3 class="mb-4">Skills & Tools</h3>
+<div class="row">
+<div class="col-md-4">
+<h6>Programming Languages</h6>
+<p>Python, R, SQL, HTML, Julia, C, JavaScript</p>
+</div>
+<div class="col-md-4">
+<h6>Data Science Libraries</h6>
+<p>TensorFlow, scikit-learn, NumPy, Pandas, Xarray</p>
+</div>
+<div class="col-md-4">
+<h6>Tools & Software</h6>
+<p>Excel, Joblib, Flask, My good looks and charm</p>
+</div>
+</div>
+</div>
+{% endblock %}

@@ -1,0 +1,71 @@
+Gravitational radiation waveforms for black hole-neutron star
+coalescence calculations. The physical input is Newtonian physics, an
+ideal gas equation of state with varying compressibility (through the
+index gamma), and point-mass gravitational radiation back reaction,
+which is switched off in the simulation once the star is tidally
+disrupted. All the simulations are 3D, done using SPH.
+
+
+Files are labeled as waveform*BHNS.out, and this text is included in
+the first line of the file. The format for the files is
+
+t (sec)	    rh+ (cm)      rhx (cm)
+
+where t is in seconds. The second and third columns contain the
+amplitude, multiplied by the distance to the observer r, in CGS units
+(i.e. this is (G/c^4)[factor of the second derivative of the moment of
+inertia, in CGS units] ). The files are such that the waveforms computed
+through the simulations are for t>0, while for t<0 the calculation is
+the result of a matched point-mass inspiral. The total time is
+approximately one second for each file. The reference for each file is
+the paper where the results were first published.
+
+Run 1: waveform1BHNS.out. (Lee W.H., 2000, MNRAS, 318, 606)
+Irrotational configuration
+adiabatic index gamma=3.0
+Neutron star radius RNS=13440m
+Initial separation=3.76RNS
+NS mass=1.4   solar masses
+BH mass=4.516 solar masses
+mass ratio=0.31
+The NS is not completely disrupted by the encounter.
+
+Run 2: waveform2BHNS.out. (Lee W.H., 2001, MNRAS, 328, 583)
+Irrotational configuration
+adiabatic index gamma=2.0
+Neutron star radius RNS=13440m
+Initial separation=3.7RNS
+NS mass=1.4   solar masses
+BH mass=4.516 solar masses
+mass ratio=0.31
+Complete tidal disruption.
+
+Run 3: waveform3BHNS.out. (Lee W.H., 2001, MNRAS, 328, 583)
+Irrotational configuration
+adiabatic index gamma=5.0/3.0
+Neutron star radius RNS=13440m
+Initial separation=3.6RNS
+NS mass=1.4   solar masses
+BH mass=4.516 solar masses
+mass ratio=0.31
+Complete tidal disruption.
+
+Run 4: waveform4BHNS.out. (Lee W.H., Kluzniak W., 1999, ApJ, 526, 178)
+Tidally locked configuration
+adiabatic index gamma=3.0
+Neutron star radius RNS=13440m
+Initial separation=3.76RNS
+NS mass=1.4   solar masses
+BH mass=4.516 solar masses
+mass ratio=0.31
+The NS is not completely disrupted by the encounter.
+
+Run 5: waveform5BHNS.out. (Lee W.H., Kluzniak W., 1999, MNRAS, 308, 780)
+Tidally locked configuration
+adiabatic index gamma=5.0/3.0
+Neutron star radius RNS=13440m
+Initial separation=3.6RNS
+NS mass=1.4   solar masses
+BH mass=4.516 solar masses
+mass ratio=0.31
+Complete tidal disruption.
